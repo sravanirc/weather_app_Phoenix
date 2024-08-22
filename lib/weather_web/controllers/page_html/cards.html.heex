@@ -1,13 +1,15 @@
+<!--This is the cards page that renders cards based on conditional rendering -->
 <div class="flex flex-wrap justify-center gap-4 w-full " >
+    <!-- This means, for each card from the cards, check if temp is less than given temp and then render-->
 <%= for card <- @cards  do%>
-<%= if card.temp < String.to_integer(@temp) do%>
-<div class="w-[250px] border-8 border-blue-400 p-2" >
-    <img src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png"/>
-    <div >
-    <p>Name: <%= card.name %></p>
-    <p>Temp: <%= card.temp %> degrees</p>
-    <p class="underline">view</p>
-    </div>
+<%= if @temp=="" || card.temp < String.to_integer(@temp)   do%>
+    <div class="w-[250px] border-8 border-blue-400 p-2" >
+        <img src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png"/>
+        <div >
+            <p>Name: <%= card.name %></p>
+            <p>Temp: <%= card.temp %> degrees</p>
+            <p class="underline">view</p>
+        </div>
     </div>
 <% end %>
 <% end %>

@@ -28,7 +28,12 @@ defmodule WeatherWeb.PageController do
       %{ name: "condition9", temp: 90},
       %{ name: "condition10", temp: 100}
     ]
-       %{"temp_lt" => temp }  = params
-    render(conn, :cards, cards: cards, temp: temp)
+    # This is to check if params has a value sent? if yes, send it as temp_lt else ""
+    if(Map.has_key?(params, "temp_lt")) do
+       %{"temp_lt" => temp_lt }  = params
+       render(conn, :cards, cards: cards, temp: temp_lt)
+    else
+    render(conn, :cards, cards: cards, temp: "")
+    end
   end
 end
