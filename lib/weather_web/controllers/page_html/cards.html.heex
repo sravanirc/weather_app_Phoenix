@@ -1,0 +1,20 @@
+<div class="flex flex-wrap justify-center gap-4 w-full " >
+<%= for card <- @cards  do%>
+<%= if card.temp < String.to_integer(@temp) do%>
+<div class="w-[250px] border-8 border-blue-400 p-2" >
+    <img src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png"/>
+    <div >
+    <p>Name: <%= card.name %></p>
+    <p>Temp: <%= card.temp %> degrees</p>
+    <p class="underline">view</p>
+    </div>
+    </div>
+<% end %>
+<% end %>
+</div>
+
+
+
+
+
+
